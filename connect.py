@@ -12,6 +12,10 @@ conn = connection.Connection(
     compute_api_version='3',
     identity_interface='internal')
 
-##Bionic
+##Bionic, pegar um hardware especifico
 
 conn.get_flavor()
+
+conn.network_find_network()
+
+conn.create_server()
