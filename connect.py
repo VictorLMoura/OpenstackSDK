@@ -1,5 +1,5 @@
-from openstack import connection
 import openstack
+import glance.client.v2.client as glclient
 
 
 #Initialize  cloud
@@ -9,11 +9,8 @@ for server in conn.compute.server():
     print(server.to_dict())
 
 
-#Upload an image to the cloud
+#Listar imagens
 
-image = conn.create_image(
-    'ubuntu-trusty', filename = 'ubuntu-trusty.qcow2', wait = True)
-)
 
 #Find flavor with at least 512M of region_name
 
@@ -23,16 +20,13 @@ flavor = conn.get_flavor_by_ram(512)
 #Boot a server, wait for it to boot.
 
 conn.create_server(
-    'server', image=image, flavor=flavor, wait= True, auto_ip = True)
-)
+    'server', image=image, flavor=bionic,wait= True, auto_ip = True,network = network)
 
 
+conn.delete_server(
+    'server')
 
-
-
-
-
-
+print("Deletou Instancia")
 
 #conn = connection.Connection(
 #    region_name='RegionOne',
