@@ -1,0 +1,13 @@
+clouds:
+  openstack:
+    auth:
+      auth_url: http://192.168.0.27:5000/v3
+      project_name: admin
+      username: admin
+      password: chahWeiteegh9chu
+      user_domain_name: admin_domain
+      project_id: bf61a57b38be479b9e43321830e7acfb
+    region_name: RegionOne
+
+
+
